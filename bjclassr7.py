@@ -1,11 +1,3 @@
-# [X} during comparetable, add a check for score of 21 in array and movecount = 0 == Blackjack (already scored)
-# [X]need to make sure you can't double on both (ie if sum of bet array would be higher than balance)
-# [X] allowed to split when you don't have enough money
-# [X]fix hitting on soft 17
-# [X]fix issue where an ace on a split hand is messed up scoring. Sometimes adding an extra. 
-# [X] technically a dealer wouldn't keep hitting if he got a blackjack. 
-# [X] Ace doesn't count as 11 when I hit with a 10
-
 import collections
 import random
 import time
