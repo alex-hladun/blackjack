@@ -112,7 +112,6 @@ class Hand:
     def double(self,deck,hn):
         """This function is called when the player chooses to double their hand"""
         self.betarray[hn] = 2 * self.betarray[hn]
-        ###Be cautious of this for later
         self.hit(deck,hn)
     
     def callout(self,hn):
@@ -163,15 +162,6 @@ class Hand:
             player.dealing = False
             self.splitting = False
             return
-        # else:
-        #     #only putting this in here due to a glitch?
-        #     for x in self.handtotal[hn]:
-        #         if x > 21:
-        #             self.handtotal[hn].remove(x)
-            
-        #     for x in self.handtotal[hn]:
-        #         if x > 21:
-        #             self.handtotal[hn].remove(x)
 
         print("Your new hand total is ", self.handtotal[hn])
         player.dealing = True
@@ -297,10 +287,6 @@ class Table:
 
             while self.dealing:
                 '''calls for initial move'''
-                #SPLIT TESTING BELOW:
-                # balance, bet, dealing, dealtotal, handtotal, dealerbust = playersplit(hand, deck, handtotal[0], balance, bet, dealing, dealerhand)
-                # balance, bet, dealing = comparetable(handtotal, dealtotal[0], balance, bet, dealing, dealerbust)
-                # print("TEST COMPLETE")
 
                 playerhand.checkmove(player,0)
 
@@ -333,10 +319,12 @@ class Table:
             print("Thanks for playing")
 
     def split_betting(self,playerhand,deck):
-        
+        '''the split betting portion, which checks what moves are possible for the current hand'''
         for x in range(0,len(playerhand.handarray)):
             #calculate initial score
             
+            
+            #this is necessary to make sure we skip over hands that were already played
             if playerhand.movecount[x] > 0:
                 continue
             else:
