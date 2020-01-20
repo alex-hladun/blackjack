@@ -443,4 +443,3 @@ class Table:
 if __name__ == '__main__':
     player = Table(1000)
     player.play()
-    player.play()
